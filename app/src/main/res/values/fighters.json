@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "manufacturer": "Lockheed Martin",
+    "model": "F-22 Raptor",
+    "year": 2005,
+    "max_speed": "Mach 2.25",
+    "armament": ["AIM-120 AMRAAM", "AIM-9 Sidewinder"],
+    "dimensions": {
+      "length": "18.92 m",
+      "wingspan": "13.56 m",
+      "height": "5.08 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=1"
+  },
+  {
+    "id": 2,
+    "manufacturer": "Boeing",
+    "model": "F/A-18 Super Hornet",
+    "year": 1999,
+    "max_speed": "Mach 1.8",
+    "armament": ["AIM-9 Sidewinder", "AGM-88 HARM"],
+    "dimensions": {
+      "length": "18.31 m",
+      "wingspan": "13.62 m",
+      "height": "4.88 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=2"
+  },
+  {
+    "id": 3,
+    "manufacturer": "Dassault Aviation",
+    "model": "Rafale",
+    "year": 2001,
+    "max_speed": "Mach 1.8",
+    "armament": ["MICA", "Meteor"],
+    "dimensions": {
+      "length": "15.27 m",
+      "wingspan": "10.90 m",
+      "height": "5.34 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=3"
+  },
+  {
+    "id": 4,
+    "manufacturer": "Sukhoi",
+    "model": "Su-35",
+    "year": 2007,
+    "max_speed": "Mach 2.25",
+    "armament": ["R-77", "R-73"],
+    "dimensions": {
+      "length": "21.9 m",
+      "wingspan": "15.3 m",
+      "height": "5.9 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=4"
+  },
+  {
+    "id": 5,
+    "manufacturer": "Eurofighter GmbH",
+    "model": "Eurofighter Typhoon",
+    "year": 2003,
+    "max_speed": "Mach 2",
+    "armament": ["AMRAAM", "IRIS-T"],
+    "dimensions": {
+      "length": "15.96 m",
+      "wingspan": "10.95 m",
+      "height": "5.28 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=5"
+  },
+  {
+    "id": 6,
+    "manufacturer": "Northrop Grumman",
+    "model": "B-2 Spirit",
+    "year": 1997,
+    "max_speed": "Mach 0.95",
+    "armament": ["B61", "B83"],
+    "dimensions": {
+      "length": "21.0 m",
+      "wingspan": "52.43 m",
+      "height": "5.18 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=6"
+  },
+  {
+    "id": 7,
+    "manufacturer": "General Dynamics",
+    "model": "F-16 Fighting Falcon",
+    "year": 1978,
+    "max_speed": "Mach 2",
+    "armament": ["AIM-9 Sidewinder", "AIM-120 AMRAAM"],
+    "dimensions": {
+      "length": "15.06 m",
+      "wingspan": "9.96 m",
+      "height": "4.88 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=7"
+  },
+  {
+    "id": 8,
+    "manufacturer": "Mikoyan",
+    "model": "MiG-29 Fulcrum",
+    "year": 1982,
+    "max_speed": "Mach 2.25",
+    "armament": ["R-27", "R-73"],
+    "dimensions": {
+      "length": "17.37 m",
+      "wingspan": "11.36 m",
+      "height": "4.73 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=8"
+  },
+  {
+    "id": 9,
+    "manufacturer": "Saab",
+    "model": "Saab JAS 39 Gripen",
+    "year": 1997,
+    "max_speed": "Mach 2",
+    "armament": ["IRIS-T", "Meteor"],
+    "dimensions": {
+      "length": "14.1 m",
+      "wingspan": "8.4 m",
+      "height": "4.5 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=9"
+  },
+  {
+    "id": 10,
+    "manufacturer": "Chengdu Aircraft Industry Group",
+    "model": "Chengdu J-20",
+    "year": 2017,
+    "max_speed": "Mach 2.5",
+    "armament": ["PL-10", "PL-15"],
+    "dimensions": {
+      "length": "20.3 m",
+      "wingspan": "12.88 m",
+      "height": "4.45 m"
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=10"
+  }
+]

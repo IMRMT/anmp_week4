@@ -15,8 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        navController = (supportFragmentManager.findFragmentById(R.id.main_navigation)
+       // navController = (binding.fragmentContainerView as NavHostFragment).navController
+        //find by id mencari berdasarkan id seluruh res
+        navController = (supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
                 as NavHostFragment).navController
     }
 }
