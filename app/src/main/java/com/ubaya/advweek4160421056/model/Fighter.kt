@@ -5,14 +5,14 @@ data class Fighter(
     val manufacturer:String?,
     val model:String?,
     val year:Int?,
-    val max_speeed:String?,
+    val max_speed:String?,
     val url:String?,
     val armament:List<String>?,
     val dimension:FighterDimension?
 )
 
 data class FighterDimension(
-    val length:Double?,
-    val wingspan:Double?,
-    val height:Double?
+    val length:String?,
+    val wingspan:String?,
+    val height:String?
 )
