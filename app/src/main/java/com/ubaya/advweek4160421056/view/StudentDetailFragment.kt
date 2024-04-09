@@ -53,7 +53,10 @@ class StudentDetailFragment : Fragment() {
     fun observeViewModel() {
         viewModel.studentLD.observe(viewLifecycleOwner, Observer {
             var student = it
-            binding.txtID.setText(it.id)
+            if(arguments != null) {
+                val id = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
+                binding.txtID.setText(id)
+            }
             binding.txtName.setText(it.name)
             binding.txtBod.setText(it.dob)
             binding.txtPhone.setText(it.phone)

@@ -1,5 +1,6 @@
 package com.ubaya.advweek4160421056.view
 
+import android.R.id
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +40,8 @@ class StudentListAdapter(val studentList:ArrayList<Student>)
         holder.binding.txtName.text = studentList[position].name
 
         holder.binding.btnDetail.setOnClickListener {
-            val action = StudentListFragmentDirections.actionStudentDetail()
+            val id = holder.binding.txtID.text.toString()
+            val action = StudentListFragmentDirections.actionStudentDetail(id)
             Navigation.findNavController(it).navigate(action)
         }
 
