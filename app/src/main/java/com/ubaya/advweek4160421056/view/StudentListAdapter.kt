@@ -25,7 +25,7 @@ class StudentListAdapter(val studentList:ArrayList<Student>)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return studentList.size
     }
 
     fun updateStudentList(newStudentList: ArrayList<Student>) {

@@ -14,6 +14,7 @@ import com.ubaya.advweek4160421056.R
 import com.ubaya.advweek4160421056.databinding.FragmentFighterListBinding
 import com.ubaya.advweek4160421056.databinding.FragmentStudentDetailBinding
 import com.ubaya.advweek4160421056.databinding.FragmentStudentListBinding
+import com.ubaya.advweek4160421056.databinding.StudentListItemBinding
 import com.ubaya.advweek4160421056.viewmodel.DetailViewModel
 import com.ubaya.advweek4160421056.viewmodel.FighterViewModel
 import com.ubaya.advweek4160421056.viewmodel.ListViewModel
@@ -36,7 +37,8 @@ class StudentDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_student_detail, container, false)
+        binding = FragmentStudentDetailBinding.inflate(inflater,container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,7 +58,7 @@ class StudentDetailFragment : Fragment() {
             binding.txtBod.setText(it.dob)
             binding.txtPhone.setText(it.phone)
 
-            binding.btnUpdate.setOnClickListener {
+            binding.btnUpdate?.setOnClickListener {
                 Observable.timer(5, TimeUnit.SECONDS)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
