@@ -11,7 +11,6 @@ import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ubaya.advweek4160421056.model.Fighter
-import com.ubaya.advweek4160421056.model.Student
 
 class FighterViewModel(application: Application):AndroidViewModel(application) {
     val fightersLD = MutableLiveData<ArrayList<Fighter>>()
