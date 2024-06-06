@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import com.ubaya.advweek4160421056.R
 import com.squareup.picasso.Callback
