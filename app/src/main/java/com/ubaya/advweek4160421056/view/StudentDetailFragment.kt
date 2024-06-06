@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.advweek4160421056.R
 import com.ubaya.advweek4160421056.databinding.FragmentFighterListBinding
 import com.ubaya.advweek4160421056.databinding.FragmentStudentDetailBinding
 import com.ubaya.advweek4160421056.databinding.FragmentStudentListBinding
 import com.ubaya.advweek4160421056.databinding.StudentListItemBinding
+import com.ubaya.advweek4160421056.model.Student
 import com.ubaya.advweek4160421056.viewmodel.DetailViewModel
 import com.ubaya.advweek4160421056.viewmodel.FighterViewModel
 import com.ubaya.advweek4160421056.viewmodel.ListViewModel
@@ -24,7 +26,7 @@ import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class StudentDetailFragment : Fragment() {
+class StudentDetailFragment() : Fragment(), ButtonDetailClickListener {
     private lateinit var binding: FragmentStudentDetailBinding
     private lateinit var viewModel: DetailViewModel
 
@@ -44,34 +46,52 @@ class StudentDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.refresh()
+        binding.student = Student("","","","","https://picsum.photos/200/300")
+        if(arguments!=null){
+            val student_id = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
+            viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+            viewModel.refresh(student_id)
+            observeViewModel()
+
+        }
 
 
         observeViewModel()
     }
     fun observeViewModel() {
         viewModel.studentLD.observe(viewLifecycleOwner, Observer {
-            var student = it
-            if(arguments != null) {
-                val id = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
-                binding.txtID.setText(id)
-            }
-            binding.txtName.setText(it.name)
-            binding.txtBod.setText(it.dob)
-            binding.txtPhone.setText(it.phone)
-
-            binding.btnUpdate?.setOnClickListener {
-                Observable.timer(5, TimeUnit.SECONDS)
+//            var student = it
+//            if(arguments != null) {
+//                val id = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
+//                binding.txtID.setText(id)
+//            }
+//            binding.txtName.setText(it.name)
+//            binding.txtBod.setText(it.dob)
+//            binding.txtPhone.setText(it.phone)
+//
+//            binding.btnUpdate?.setOnClickListener {
+//                Observable.timer(5, TimeUnit.SECONDS)
+//                    .subscribeOn(Schedulers.io())
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribe {
+//                        Log.d("Messages", "five seconds")
+//                        MainActivity.showNotifications(student.name.toString(),
+//                            "A new notification created",
+//                            R.drawable.baseline_person_2_24)
+//                    }
+//            }
+            binding.student = it
+            binding.listener = this
+            Observable.timer(5, TimeUnit.SECONDS)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
-                        Log.d("Messages", "five seconds")
-                        MainActivity.showNotifications(student.name.toString(),
-                            "A new notification created",
-                            R.drawable.baseline_person_2_24)
-                    }
-            }
+                        Log.d("Messages", "five seconds")}
         })
+    }
+
+    override fun onButtonDetailClick(v: View) {
+        val action = StudentDetailFragmentDirections.actionStudentList()
+        Navigation.findNavController(v).navigate(action)
     }
 }

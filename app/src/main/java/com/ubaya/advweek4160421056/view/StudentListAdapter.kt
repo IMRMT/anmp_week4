@@ -14,7 +14,7 @@ import com.ubaya.advweek4160421056.model.Student
 import java.lang.Exception
 
 class StudentListAdapter(val studentList:ArrayList<Student>)
-    :RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>()
+    :RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>(), ButtonDetailClickListener
 {
     class StudentViewHolder(var binding: StudentListItemBinding)
         :RecyclerView.ViewHolder(binding.root)
@@ -36,30 +36,38 @@ class StudentListAdapter(val studentList:ArrayList<Student>)
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
-        holder.binding.txtID.text = studentList[position].id
-        holder.binding.txtName.text = studentList[position].name
+//        holder.binding.txtID.text = studentList[position].id
+//        holder.binding.txtName.text = studentList[position].name
+//
+//        holder.binding.btnDetail.setOnClickListener {
+//            val id = holder.binding.txtID.text.toString()
+//            val action = StudentListFragmentDirections.actionStudentDetail(id)
+//            Navigation.findNavController(it).navigate(action)
+//        }
+//
+//        val picasso = Picasso.Builder(holder.itemView.context)
+//        picasso.listener { picasso, uri, exception ->
+//            exception.printStackTrace()
+//        }
+//        picasso.build().load(studentList[position].photoUrl)
+//            .into(holder.binding.imageView, object:Callback {
+//                override fun onSuccess() {
+//                    holder.binding.progressImage.visibility = View.INVISIBLE
+//                    holder.binding.imageView.visibility = View.VISIBLE
+//                }
+//
+//                override fun onError(e: Exception?) {
+//                    Log.d("Picasso_error", e.toString())
+//                }
+//            })
+        holder.binding.student = studentList[position]
+        holder.binding.listener = this
+    }
 
-        holder.binding.btnDetail.setOnClickListener {
-            val id = holder.binding.txtID.text.toString()
-            val action = StudentListFragmentDirections.actionStudentDetail(id)
-            Navigation.findNavController(it).navigate(action)
-        }
-
-        val picasso = Picasso.Builder(holder.itemView.context)
-        picasso.listener { picasso, uri, exception ->
-            exception.printStackTrace()
-        }
-        picasso.build().load(studentList[position].photoUrl)
-            .into(holder.binding.imageView, object:Callback {
-                override fun onSuccess() {
-                    holder.binding.progressImage.visibility = View.INVISIBLE
-                    holder.binding.imageView.visibility = View.VISIBLE
-                }
-
-                override fun onError(e: Exception?) {
-                    Log.d("Picasso_error", e.toString())
-                }
-            })
+    override fun onButtonDetailClick(v: View) {
+        val id = v.tag.toString()
+        val action = StudentListFragmentDirections.actionStudentDetail(id)
+        Navigation.findNavController(v).navigate(action)
     }
 
 }
